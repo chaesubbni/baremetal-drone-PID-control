@@ -3,7 +3,7 @@
 
 <table>
   <tr>
-    <td align="center" width="40%">
+    <td align="center" width="50%">
       <b>📸 드론 테스트 장치</b><br/><br/>
       <img src="https://github.com/user-attachments/assets/45563e73-67fa-42ea-aff6-11bdc7805bff" height="300px" style="max-width:100%; object-fit:contain;" alt="KakaoTalk_20260704_051551033" />
     </td>
