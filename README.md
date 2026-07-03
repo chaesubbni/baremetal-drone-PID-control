@@ -5,7 +5,7 @@
   <tr>
     <td align="center" width="50%">
       <b>📸 드론 사진</b><br/><br/>
-      <img src="https://github.com/user-attachments/assets/45563e73-67fa-42ea-aff6-11bdc7805bff" width="100%" alt="KakaoTalk_20260704_051551033" />
+      <img src="https://github.com/user-attachments/assets/45563e73-67fa-42ea-aff6-11bdc7805bff" height="400px" style="max-width:100%; object-fit:contain;" alt="KakaoTalk_20260704_051551033" />
     </td>
     <td align="center" width="50%">
       <b>🎬 작동 영상</b><br/><br/>
