@@ -11,13 +11,13 @@
 ---------------
 
 ## 드론 테스트 하드웨어 제작
-<table border="0">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr>
-    <td width="50%" align="center" style="vertical-align: middle;">
-      <img src="https://github.com/user-attachments/assets/5f2f9a90-0f73-4d9f-b6b3-f2a348778121" alt="드론 하드웨어" width="100%" style="display: block; height: auto;">
+    <td width="30%" align="center" style="vertical-align: middle; border: none;">
+      <img src="https://github.com/user-attachments/assets/5f2f9a90-0f73-4d9f-b6b3-f2a348778121" alt="드론 하드웨어" style="display: block; width: 100%; height: auto;">
     </td>
-    <td width="50%" align="center" style="vertical-align: middle;">
-      <video src="https://github.com/user-attachments/assets/7ba754b7-89ef-4e2c-ac61-23e5a5d4aa4c" width="100%" controls style="display: block; height: auto;"></video>
+    <td width="70%" align="center" style="vertical-align: middle; border: none;">
+      <video src="https://github.com/user-attachments/assets/7ba754b7-89ef-4e2c-ac61-23e5a5d4aa4c" controls style="display: block; width: 100%; height: auto;"></video>
     </td>
   </tr>
 </table>
