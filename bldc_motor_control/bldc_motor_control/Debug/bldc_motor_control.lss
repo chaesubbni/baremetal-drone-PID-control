@@ -1,0 +1,820 @@
+
+bldc_motor_control.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000132  00800100  0000049a  0000050e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000049a  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  00000640  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000670  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000060  00000000  00000000  000006b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000c42  00000000  00000000  00000710  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000007bf  00000000  00000000  00001352  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000005c5  00000000  00000000  00001b11  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000d8  00000000  00000000  000020d8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000004a7  00000000  00000000  000021b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000582  00000000  00000000  00002657  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000068  00000000  00000000  00002bd9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+   8:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+   c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  10:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  14:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  18:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  1c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  20:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  24:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  28:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  2c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  30:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  34:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  38:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  3c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  40:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  44:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  48:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  4c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  50:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  54:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  58:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  5c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  60:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  64:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	12 e0       	ldi	r17, 0x02	; 2
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	ea e9       	ldi	r30, 0x9A	; 154
+  7c:	f4 e0       	ldi	r31, 0x04	; 4
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a2 33       	cpi	r26, 0x32	; 50
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+  8a:	0e 94 71 01 	call	0x2e2	; 0x2e2 <main>
+  8e:	0c 94 4b 02 	jmp	0x496	; 0x496 <_exit>
+
+00000092 <__bad_interrupt>:
+  92:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000096 <USART_Init>:
+}
+
+uint8_t USART_receive(void) {
+	if (UCSR0A & (1 << RXC0)) return UDR0;
+	return 0;
+}
+  96:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7f80c5>
+  9a:	87 e6       	ldi	r24, 0x67	; 103
+  9c:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7f80c4>
+  a0:	86 e0       	ldi	r24, 0x06	; 6
+  a2:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7f80c2>
+  a6:	88 e1       	ldi	r24, 0x18	; 24
+  a8:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7f80c1>
+  ac:	08 95       	ret
+
+000000ae <USART_transmit>:
+  ae:	90 91 c0 00 	lds	r25, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
+  b2:	95 ff       	sbrs	r25, 5
+  b4:	fc cf       	rjmp	.-8      	; 0xae <USART_transmit>
+  b6:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+  ba:	08 95       	ret
+
+000000bc <USART_transmit_string>:
+  bc:	cf 93       	push	r28
+  be:	df 93       	push	r29
+  c0:	ec 01       	movw	r28, r24
+  c2:	03 c0       	rjmp	.+6      	; 0xca <USART_transmit_string+0xe>
+  c4:	21 96       	adiw	r28, 0x01	; 1
+  c6:	0e 94 57 00 	call	0xae	; 0xae <USART_transmit>
+  ca:	88 81       	ld	r24, Y
+  cc:	81 11       	cpse	r24, r1
+  ce:	fa cf       	rjmp	.-12     	; 0xc4 <USART_transmit_string+0x8>
+  d0:	df 91       	pop	r29
+  d2:	cf 91       	pop	r28
+  d4:	08 95       	ret
+
+000000d6 <USART_transmit_number>:
+  d6:	0f 93       	push	r16
+  d8:	1f 93       	push	r17
+  da:	cf 93       	push	r28
+  dc:	df 93       	push	r29
+  de:	cd b7       	in	r28, 0x3d	; 61
+  e0:	de b7       	in	r29, 0x3e	; 62
+  e2:	2a 97       	sbiw	r28, 0x0a	; 10
+  e4:	0f b6       	in	r0, 0x3f	; 63
+  e6:	f8 94       	cli
+  e8:	de bf       	out	0x3e, r29	; 62
+  ea:	0f be       	out	0x3f, r0	; 63
+  ec:	cd bf       	out	0x3d, r28	; 61
+  ee:	ac 01       	movw	r20, r24
+  f0:	89 2b       	or	r24, r25
+  f2:	99 f5       	brne	.+102    	; 0x15a <USART_transmit_number+0x84>
+  f4:	80 e3       	ldi	r24, 0x30	; 48
+  f6:	0e 94 57 00 	call	0xae	; 0xae <USART_transmit>
+  fa:	44 c0       	rjmp	.+136    	; 0x184 <USART_transmit_number+0xae>
+  fc:	9a 01       	movw	r18, r20
+  fe:	ad ec       	ldi	r26, 0xCD	; 205
+ 100:	bc ec       	ldi	r27, 0xCC	; 204
+ 102:	0e 94 3c 02 	call	0x478	; 0x478 <__umulhisi3>
+ 106:	96 95       	lsr	r25
+ 108:	87 95       	ror	r24
+ 10a:	96 95       	lsr	r25
+ 10c:	87 95       	ror	r24
+ 10e:	96 95       	lsr	r25
+ 110:	87 95       	ror	r24
+ 112:	9c 01       	movw	r18, r24
+ 114:	22 0f       	add	r18, r18
+ 116:	33 1f       	adc	r19, r19
+ 118:	88 0f       	add	r24, r24
+ 11a:	99 1f       	adc	r25, r25
+ 11c:	88 0f       	add	r24, r24
+ 11e:	99 1f       	adc	r25, r25
+ 120:	88 0f       	add	r24, r24
+ 122:	99 1f       	adc	r25, r25
+ 124:	82 0f       	add	r24, r18
+ 126:	93 1f       	adc	r25, r19
+ 128:	9a 01       	movw	r18, r20
+ 12a:	28 1b       	sub	r18, r24
+ 12c:	39 0b       	sbc	r19, r25
+ 12e:	c9 01       	movw	r24, r18
+ 130:	e1 e0       	ldi	r30, 0x01	; 1
+ 132:	f0 e0       	ldi	r31, 0x00	; 0
+ 134:	ec 0f       	add	r30, r28
+ 136:	fd 1f       	adc	r31, r29
+ 138:	e0 0f       	add	r30, r16
+ 13a:	f1 1f       	adc	r31, r17
+ 13c:	80 5d       	subi	r24, 0xD0	; 208
+ 13e:	80 83       	st	Z, r24
+ 140:	9a 01       	movw	r18, r20
+ 142:	0e 94 3c 02 	call	0x478	; 0x478 <__umulhisi3>
+ 146:	ac 01       	movw	r20, r24
+ 148:	56 95       	lsr	r21
+ 14a:	47 95       	ror	r20
+ 14c:	56 95       	lsr	r21
+ 14e:	47 95       	ror	r20
+ 150:	56 95       	lsr	r21
+ 152:	47 95       	ror	r20
+ 154:	0f 5f       	subi	r16, 0xFF	; 255
+ 156:	1f 4f       	sbci	r17, 0xFF	; 255
+ 158:	02 c0       	rjmp	.+4      	; 0x15e <USART_transmit_number+0x88>
+ 15a:	00 e0       	ldi	r16, 0x00	; 0
+ 15c:	10 e0       	ldi	r17, 0x00	; 0
+ 15e:	41 15       	cp	r20, r1
+ 160:	51 05       	cpc	r21, r1
+ 162:	61 f6       	brne	.-104    	; 0xfc <USART_transmit_number+0x26>
+ 164:	01 50       	subi	r16, 0x01	; 1
+ 166:	11 09       	sbc	r17, r1
+ 168:	0b c0       	rjmp	.+22     	; 0x180 <USART_transmit_number+0xaa>
+ 16a:	e1 e0       	ldi	r30, 0x01	; 1
+ 16c:	f0 e0       	ldi	r31, 0x00	; 0
+ 16e:	ec 0f       	add	r30, r28
+ 170:	fd 1f       	adc	r31, r29
+ 172:	e0 0f       	add	r30, r16
+ 174:	f1 1f       	adc	r31, r17
+ 176:	80 81       	ld	r24, Z
+ 178:	0e 94 57 00 	call	0xae	; 0xae <USART_transmit>
+ 17c:	01 50       	subi	r16, 0x01	; 1
+ 17e:	11 09       	sbc	r17, r1
+ 180:	11 23       	and	r17, r17
+ 182:	9c f7       	brge	.-26     	; 0x16a <USART_transmit_number+0x94>
+ 184:	2a 96       	adiw	r28, 0x0a	; 10
+ 186:	0f b6       	in	r0, 0x3f	; 63
+ 188:	f8 94       	cli
+ 18a:	de bf       	out	0x3e, r29	; 62
+ 18c:	0f be       	out	0x3f, r0	; 63
+ 18e:	cd bf       	out	0x3d, r28	; 61
+ 190:	df 91       	pop	r29
+ 192:	cf 91       	pop	r28
+ 194:	1f 91       	pop	r17
+ 196:	0f 91       	pop	r16
+ 198:	08 95       	ret
+
+0000019a <get_distance_cm>:
+
+// ==========================================
+// 2. 초음파 센서 (HC-SR04) 제어 함수
+// ==========================================
+uint16_t get_distance_cm(void) {
+	uint32_t timeout = 30000;
+ 19a:	80 e3       	ldi	r24, 0x30	; 48
+ 19c:	95 e7       	ldi	r25, 0x75	; 117
+ 19e:	a0 e0       	ldi	r26, 0x00	; 0
+ 1a0:	b0 e0       	ldi	r27, 0x00	; 0
+	while (PIND & (1 << ECHO_PIN)) { if (--timeout == 0) break; }
+ 1a2:	04 c0       	rjmp	.+8      	; 0x1ac <get_distance_cm+0x12>
+ 1a4:	01 97       	sbiw	r24, 0x01	; 1
+ 1a6:	a1 09       	sbc	r26, r1
+ 1a8:	b1 09       	sbc	r27, r1
+ 1aa:	11 f0       	breq	.+4      	; 0x1b0 <get_distance_cm+0x16>
+ 1ac:	4f 99       	sbic	0x09, 7	; 9
+ 1ae:	fa cf       	rjmp	.-12     	; 0x1a4 <get_distance_cm+0xa>
+
+	PORTD &= ~(1 << TRIG_PIN);
+ 1b0:	8b b1       	in	r24, 0x0b	; 11
+ 1b2:	8f 7b       	andi	r24, 0xBF	; 191
+ 1b4:	8b b9       	out	0x0b, r24	; 11
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1b6:	2a e0       	ldi	r18, 0x0A	; 10
+ 1b8:	2a 95       	dec	r18
+ 1ba:	f1 f7       	brne	.-4      	; 0x1b8 <get_distance_cm+0x1e>
+ 1bc:	00 c0       	rjmp	.+0      	; 0x1be <get_distance_cm+0x24>
+	_delay_us(2);
+	PORTD |= (1 << TRIG_PIN);
+ 1be:	8b b1       	in	r24, 0x0b	; 11
+ 1c0:	80 64       	ori	r24, 0x40	; 64
+ 1c2:	8b b9       	out	0x0b, r24	; 11
+ 1c4:	85 e3       	ldi	r24, 0x35	; 53
+ 1c6:	8a 95       	dec	r24
+ 1c8:	f1 f7       	brne	.-4      	; 0x1c6 <get_distance_cm+0x2c>
+ 1ca:	00 00       	nop
+	_delay_us(10);
+	PORTD &= ~(1 << TRIG_PIN);
+ 1cc:	8b b1       	in	r24, 0x0b	; 11
+ 1ce:	8f 7b       	andi	r24, 0xBF	; 191
+ 1d0:	8b b9       	out	0x0b, r24	; 11
+
+	timeout = 50000;
+ 1d2:	80 e5       	ldi	r24, 0x50	; 80
+ 1d4:	93 ec       	ldi	r25, 0xC3	; 195
+ 1d6:	a0 e0       	ldi	r26, 0x00	; 0
+ 1d8:	b0 e0       	ldi	r27, 0x00	; 0
+	while (!(PIND & (1 << ECHO_PIN))) { if (--timeout == 0) return 999; }
+ 1da:	04 c0       	rjmp	.+8      	; 0x1e4 <get_distance_cm+0x4a>
+ 1dc:	01 97       	sbiw	r24, 0x01	; 1
+ 1de:	a1 09       	sbc	r26, r1
+ 1e0:	b1 09       	sbc	r27, r1
+ 1e2:	f9 f0       	breq	.+62     	; 0x222 <get_distance_cm+0x88>
+ 1e4:	4f 9b       	sbis	0x09, 7	; 9
+ 1e6:	fa cf       	rjmp	.-12     	; 0x1dc <get_distance_cm+0x42>
+ 1e8:	80 e0       	ldi	r24, 0x00	; 0
+ 1ea:	90 e0       	ldi	r25, 0x00	; 0
+ 1ec:	dc 01       	movw	r26, r24
+ 1ee:	0d c0       	rjmp	.+26     	; 0x20a <get_distance_cm+0x70>
+
+	uint32_t echo_time = 0;
+	while (PIND & (1 << ECHO_PIN)) {
+		echo_time++;
+ 1f0:	01 96       	adiw	r24, 0x01	; 1
+ 1f2:	a1 1d       	adc	r26, r1
+ 1f4:	b1 1d       	adc	r27, r1
+ 1f6:	25 e0       	ldi	r18, 0x05	; 5
+ 1f8:	2a 95       	dec	r18
+ 1fa:	f1 f7       	brne	.-4      	; 0x1f8 <get_distance_cm+0x5e>
+ 1fc:	00 00       	nop
+		_delay_us(1);
+		if (echo_time > 35000) return 888;
+ 1fe:	89 3b       	cpi	r24, 0xB9	; 185
+ 200:	28 e8       	ldi	r18, 0x88	; 136
+ 202:	92 07       	cpc	r25, r18
+ 204:	a1 05       	cpc	r26, r1
+ 206:	b1 05       	cpc	r27, r1
+ 208:	78 f4       	brcc	.+30     	; 0x228 <get_distance_cm+0x8e>
+
+	timeout = 50000;
+	while (!(PIND & (1 << ECHO_PIN))) { if (--timeout == 0) return 999; }
+
+	uint32_t echo_time = 0;
+	while (PIND & (1 << ECHO_PIN)) {
+ 20a:	4f 99       	sbic	0x09, 7	; 9
+ 20c:	f1 cf       	rjmp	.-30     	; 0x1f0 <get_distance_cm+0x56>
+		echo_time++;
+		_delay_us(1);
+		if (echo_time > 35000) return 888;
+	}
+	return (uint16_t)(echo_time / 42);
+ 20e:	bc 01       	movw	r22, r24
+ 210:	cd 01       	movw	r24, r26
+ 212:	2a e2       	ldi	r18, 0x2A	; 42
+ 214:	30 e0       	ldi	r19, 0x00	; 0
+ 216:	40 e0       	ldi	r20, 0x00	; 0
+ 218:	50 e0       	ldi	r21, 0x00	; 0
+ 21a:	0e 94 1a 02 	call	0x434	; 0x434 <__udivmodsi4>
+ 21e:	c9 01       	movw	r24, r18
+ 220:	08 95       	ret
+	PORTD |= (1 << TRIG_PIN);
+	_delay_us(10);
+	PORTD &= ~(1 << TRIG_PIN);
+
+	timeout = 50000;
+	while (!(PIND & (1 << ECHO_PIN))) { if (--timeout == 0) return 999; }
+ 222:	87 ee       	ldi	r24, 0xE7	; 231
+ 224:	93 e0       	ldi	r25, 0x03	; 3
+ 226:	08 95       	ret
+
+	uint32_t echo_time = 0;
+	while (PIND & (1 << ECHO_PIN)) {
+		echo_time++;
+		_delay_us(1);
+		if (echo_time > 35000) return 888;
+ 228:	88 e7       	ldi	r24, 0x78	; 120
+ 22a:	93 e0       	ldi	r25, 0x03	; 3
+	}
+	return (uint16_t)(echo_time / 42);
+}
+ 22c:	08 95       	ret
+
+0000022e <timer1_init>:
+// ==========================================
+void timer1_init(void) {
+	// Fast PWM Mode 14 (TOP = ICR1)
+	// COM1A1: OC1A (D9) Non-inverting 출력 활성화
+	// COM1B1: OC1B (D10) Non-inverting 출력 활성화
+	TCCR1A = (1 << COM1A1) | (1 << COM1B1) | (1 << WGM11);
+ 22e:	82 ea       	ldi	r24, 0xA2	; 162
+ 230:	80 93 80 00 	sts	0x0080, r24	; 0x800080 <__TEXT_REGION_LENGTH__+0x7f8080>
+	TCCR1B = (1 << WGM13) | (1 << WGM12) | (1 << CS11); // Prescaler 8
+ 234:	8a e1       	ldi	r24, 0x1A	; 26
+ 236:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__TEXT_REGION_LENGTH__+0x7f8081>
+	
+	// 50Hz (20ms) 주기 설정
+	ICR1 = 39999;
+ 23a:	8f e3       	ldi	r24, 0x3F	; 63
+ 23c:	9c e9       	ldi	r25, 0x9C	; 156
+ 23e:	90 93 87 00 	sts	0x0087, r25	; 0x800087 <__TEXT_REGION_LENGTH__+0x7f8087>
+ 242:	80 93 86 00 	sts	0x0086, r24	; 0x800086 <__TEXT_REGION_LENGTH__+0x7f8086>
+ 246:	08 95       	ret
+
+00000248 <calibrate_and_arm_escs>:
+
+
+// ==========================================
+// 4. ESC 자동 캘리브레이션 (시간 지연 방식)
+// ==========================================
+void calibrate_and_arm_escs(void) {
+ 248:	cf 93       	push	r28
+ 24a:	df 93       	push	r29
+	USART_transmit_string("System Start. Calibration Mode (Delay Based).\r\n");
+ 24c:	80 e0       	ldi	r24, 0x00	; 0
+ 24e:	91 e0       	ldi	r25, 0x01	; 1
+ 250:	0e 94 5e 00 	call	0xbc	; 0xbc <USART_transmit_string>
+	
+	// 1단계: 보드 켜지자마자 양쪽 모두 'MAX' 신호 쏘기
+	OCR1A = PWM_MAX;
+ 254:	80 ea       	ldi	r24, 0xA0	; 160
+ 256:	9f e0       	ldi	r25, 0x0F	; 15
+ 258:	90 93 89 00 	sts	0x0089, r25	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
+ 25c:	80 93 88 00 	sts	0x0088, r24	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
+	OCR1B = PWM_MAX;
+ 260:	90 93 8b 00 	sts	0x008B, r25	; 0x80008b <__TEXT_REGION_LENGTH__+0x7f808b>
+ 264:	80 93 8a 00 	sts	0x008A, r24	; 0x80008a <__TEXT_REGION_LENGTH__+0x7f808a>
+	
+	USART_transmit_string("STEP 1: MAX PWM sent.\r\n");
+ 268:	80 e3       	ldi	r24, 0x30	; 48
+ 26a:	91 e0       	ldi	r25, 0x01	; 1
+ 26c:	0e 94 5e 00 	call	0xbc	; 0xbc <USART_transmit_string>
+	USART_transmit_string(">> Connect battery NOW! You have 5 seconds...\r\n");
+ 270:	88 e4       	ldi	r24, 0x48	; 72
+ 272:	91 e0       	ldi	r25, 0x01	; 1
+ 274:	0e 94 5e 00 	call	0xbc	; 0xbc <USART_transmit_string>
+	
+	// 10초 대기: 이 10초 안에 ESC 메인 배터리를 연결해야 합니다!
+	// (필요하다면 _delay_ms(7000); 등으로 시간을 늘려도 됩니다.)
+	for(int i=10; i>0; i--) {
+ 278:	ca e0       	ldi	r28, 0x0A	; 10
+ 27a:	d0 e0       	ldi	r29, 0x00	; 0
+ 27c:	11 c0       	rjmp	.+34     	; 0x2a0 <calibrate_and_arm_escs+0x58>
+		USART_transmit_number(i);
+ 27e:	ce 01       	movw	r24, r28
+ 280:	0e 94 6b 00 	call	0xd6	; 0xd6 <USART_transmit_number>
+		USART_transmit_string(" seconds left...\r\n");
+ 284:	88 e7       	ldi	r24, 0x78	; 120
+ 286:	91 e0       	ldi	r25, 0x01	; 1
+ 288:	0e 94 5e 00 	call	0xbc	; 0xbc <USART_transmit_string>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 28c:	2f ef       	ldi	r18, 0xFF	; 255
+ 28e:	83 ed       	ldi	r24, 0xD3	; 211
+ 290:	90 e3       	ldi	r25, 0x30	; 48
+ 292:	21 50       	subi	r18, 0x01	; 1
+ 294:	80 40       	sbci	r24, 0x00	; 0
+ 296:	90 40       	sbci	r25, 0x00	; 0
+ 298:	e1 f7       	brne	.-8      	; 0x292 <calibrate_and_arm_escs+0x4a>
+ 29a:	00 c0       	rjmp	.+0      	; 0x29c <calibrate_and_arm_escs+0x54>
+ 29c:	00 00       	nop
+	USART_transmit_string("STEP 1: MAX PWM sent.\r\n");
+	USART_transmit_string(">> Connect battery NOW! You have 5 seconds...\r\n");
+	
+	// 10초 대기: 이 10초 안에 ESC 메인 배터리를 연결해야 합니다!
+	// (필요하다면 _delay_ms(7000); 등으로 시간을 늘려도 됩니다.)
+	for(int i=10; i>0; i--) {
+ 29e:	21 97       	sbiw	r28, 0x01	; 1
+ 2a0:	1c 16       	cp	r1, r28
+ 2a2:	1d 06       	cpc	r1, r29
+ 2a4:	64 f3       	brlt	.-40     	; 0x27e <calibrate_and_arm_escs+0x36>
+		USART_transmit_string(" seconds left...\r\n");
+		_delay_ms(1000);
+	}
+
+	// 2단계: 5초가 지나면 자동으로 양쪽 모두 'MIN' 신호로 떨어뜨리기
+	USART_transmit_string("STEP 2: Sending MIN PWM. Wait for Arming...\r\n");
+ 2a6:	8b e8       	ldi	r24, 0x8B	; 139
+ 2a8:	91 e0       	ldi	r25, 0x01	; 1
+ 2aa:	0e 94 5e 00 	call	0xbc	; 0xbc <USART_transmit_string>
+	OCR1A = PWM_MIN;
+ 2ae:	80 ed       	ldi	r24, 0xD0	; 208
+ 2b0:	97 e0       	ldi	r25, 0x07	; 7
+ 2b2:	90 93 89 00 	sts	0x0089, r25	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
+ 2b6:	80 93 88 00 	sts	0x0088, r24	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
+	OCR1B = PWM_MIN;
+ 2ba:	90 93 8b 00 	sts	0x008B, r25	; 0x80008b <__TEXT_REGION_LENGTH__+0x7f808b>
+ 2be:	80 93 8a 00 	sts	0x008A, r24	; 0x80008a <__TEXT_REGION_LENGTH__+0x7f808a>
+ 2c2:	2f ef       	ldi	r18, 0xFF	; 255
+ 2c4:	8f e4       	ldi	r24, 0x4F	; 79
+ 2c6:	93 ec       	ldi	r25, 0xC3	; 195
+ 2c8:	21 50       	subi	r18, 0x01	; 1
+ 2ca:	80 40       	sbci	r24, 0x00	; 0
+ 2cc:	90 40       	sbci	r25, 0x00	; 0
+ 2ce:	e1 f7       	brne	.-8      	; 0x2c8 <calibrate_and_arm_escs+0x80>
+ 2d0:	00 c0       	rjmp	.+0      	; 0x2d2 <calibrate_and_arm_escs+0x8a>
+ 2d2:	00 00       	nop
+	
+	// 최저점 인식 및 잠금 해제("삐루루룩~ 삐-") 소리가 날 때까지 4초 대기
+	_delay_ms(4000);
+	
+	USART_transmit_string("Calibration & Arming Complete. Entering Speed Control Mode.\r\n");
+ 2d4:	89 eb       	ldi	r24, 0xB9	; 185
+ 2d6:	91 e0       	ldi	r25, 0x01	; 1
+ 2d8:	0e 94 5e 00 	call	0xbc	; 0xbc <USART_transmit_string>
+}
+ 2dc:	df 91       	pop	r29
+ 2de:	cf 91       	pop	r28
+ 2e0:	08 95       	ret
+
+000002e2 <main>:
+// 5. 메인 루프
+// ==========================================
+int main(void) {
+	// 입출력 방향 설정
+	// PB1(D9), PB2(D10) 모두 출력으로 설정
+	DDRB |= (1 << PORTB1) | (1 << PORTB2);
+ 2e2:	84 b1       	in	r24, 0x04	; 4
+ 2e4:	86 60       	ori	r24, 0x06	; 6
+ 2e6:	84 b9       	out	0x04, r24	; 4
+	DDRD |= (1 << TRIG_PIN);   // D6 - 초음파 Trig 출력
+ 2e8:	8a b1       	in	r24, 0x0a	; 10
+ 2ea:	80 64       	ori	r24, 0x40	; 64
+ 2ec:	8a b9       	out	0x0a, r24	; 10
+	DDRD &= ~(1 << ECHO_PIN);  // D7 - 초음파 Echo 입력
+ 2ee:	8a b1       	in	r24, 0x0a	; 10
+ 2f0:	8f 77       	andi	r24, 0x7F	; 127
+ 2f2:	8a b9       	out	0x0a, r24	; 10
+	
+	// 스위치 설정
+	DDRD &= ~(1 << SW_PIN);    // D2 - 스위치 입력
+ 2f4:	8a b1       	in	r24, 0x0a	; 10
+ 2f6:	8b 7f       	andi	r24, 0xFB	; 251
+ 2f8:	8a b9       	out	0x0a, r24	; 10
+	PORTD |= (1 << SW_PIN);    // D2 - 내부 풀업 저항 활성화
+ 2fa:	8b b1       	in	r24, 0x0b	; 11
+ 2fc:	84 60       	ori	r24, 0x04	; 4
+ 2fe:	8b b9       	out	0x0b, r24	; 11
+
+	// 통신 및 타이머 초기화
+	USART_Init();
+ 300:	0e 94 4b 00 	call	0x96	; 0x96 <USART_Init>
+	timer1_init();
+ 304:	0e 94 17 01 	call	0x22e	; 0x22e <timer1_init>
+
+	// ESC 초기화
+	calibrate_and_arm_escs();
+ 308:	0e 94 24 01 	call	0x248	; 0x248 <calibrate_and_arm_escs>
+	uint16_t print_counter = 0;
+	uint8_t last_sw_state = 1; // 풀업이므로 기본 상태는 1(HIGH)
+	
+	// 두 모터의 속도 변수
+	uint16_t pwm_motor1 = PWM_MIN;
+	uint16_t pwm_motor2 = PWM_MIN;
+ 30c:	0f 2e       	mov	r0, r31
+ 30e:	f0 ed       	ldi	r31, 0xD0	; 208
+ 310:	ef 2e       	mov	r14, r31
+ 312:	f7 e0       	ldi	r31, 0x07	; 7
+ 314:	ff 2e       	mov	r15, r31
+ 316:	f0 2d       	mov	r31, r0
+
+	uint16_t print_counter = 0;
+	uint8_t last_sw_state = 1; // 풀업이므로 기본 상태는 1(HIGH)
+	
+	// 두 모터의 속도 변수
+	uint16_t pwm_motor1 = PWM_MIN;
+ 318:	00 ed       	ldi	r16, 0xD0	; 208
+ 31a:	17 e0       	ldi	r17, 0x07	; 7
+
+	// ESC 초기화
+	calibrate_and_arm_escs();
+
+	uint16_t print_counter = 0;
+	uint8_t last_sw_state = 1; // 풀업이므로 기본 상태는 1(HIGH)
+ 31c:	31 e0       	ldi	r19, 0x01	; 1
+	timer1_init();
+
+	// ESC 초기화
+	calibrate_and_arm_escs();
+
+	uint16_t print_counter = 0;
+ 31e:	c1 2c       	mov	r12, r1
+ 320:	d1 2c       	mov	r13, r1
+ 322:	03 c0       	rjmp	.+6      	; 0x32a <main+0x48>
+				OCR1B = pwm_motor2;
+				
+				SREG = sreg_save;
+				// =======================================================
+			}
+			print_counter = 0;
+ 324:	c1 2c       	mov	r12, r1
+ 326:	d1 2c       	mov	r13, r1
+ 328:	3c 2f       	mov	r19, r28
+	uint16_t pwm_motor1 = PWM_MIN;
+	uint16_t pwm_motor2 = PWM_MIN;
+
+	while (1) {
+		// 1. 스위치 입력 처리
+		uint8_t sw_state = (PIND & (1 << SW_PIN)) ? 1 : 0;
+ 32a:	89 b1       	in	r24, 0x09	; 9
+ 32c:	91 e0       	ldi	r25, 0x01	; 1
+ 32e:	28 2f       	mov	r18, r24
+ 330:	24 70       	andi	r18, 0x04	; 4
+ 332:	82 ff       	sbrs	r24, 2
+ 334:	90 e0       	ldi	r25, 0x00	; 0
+ 336:	c9 2f       	mov	r28, r25
+		
+		// 버튼이 눌리는 순간(하강 에지) 감지
+		if (sw_state == 0 && last_sw_state == 1) {
+ 338:	21 11       	cpse	r18, r1
+ 33a:	48 c0       	rjmp	.+144    	; 0x3cc <main+0xea>
+ 33c:	31 30       	cpi	r19, 0x01	; 1
+ 33e:	09 f0       	breq	.+2      	; 0x342 <main+0x60>
+ 340:	45 c0       	rjmp	.+138    	; 0x3cc <main+0xea>
+			
+			pwm_motor1 += 100;
+ 342:	0c 59       	subi	r16, 0x9C	; 156
+ 344:	1f 4f       	sbci	r17, 0xFF	; 255
+			pwm_motor2 += 100;
+ 346:	24 e6       	ldi	r18, 0x64	; 100
+ 348:	e2 0e       	add	r14, r18
+ 34a:	f1 1c       	adc	r15, r1
+			
+			// 각각 최대 속도 제한 보호
+			if (pwm_motor1 > PWM_MAX) pwm_motor1 = PWM_MAX;
+ 34c:	01 3a       	cpi	r16, 0xA1	; 161
+ 34e:	8f e0       	ldi	r24, 0x0F	; 15
+ 350:	18 07       	cpc	r17, r24
+ 352:	10 f0       	brcs	.+4      	; 0x358 <main+0x76>
+ 354:	00 ea       	ldi	r16, 0xA0	; 160
+ 356:	1f e0       	ldi	r17, 0x0F	; 15
+			if (pwm_motor2 > PWM_MAX) pwm_motor2 = PWM_MAX;
+ 358:	91 ea       	ldi	r25, 0xA1	; 161
+ 35a:	e9 16       	cp	r14, r25
+ 35c:	9f e0       	ldi	r25, 0x0F	; 15
+ 35e:	f9 06       	cpc	r15, r25
+ 360:	30 f0       	brcs	.+12     	; 0x36e <main+0x8c>
+ 362:	0f 2e       	mov	r0, r31
+ 364:	f0 ea       	ldi	r31, 0xA0	; 160
+ 366:	ef 2e       	mov	r14, r31
+ 368:	ff e0       	ldi	r31, 0x0F	; 15
+ 36a:	ff 2e       	mov	r15, r31
+ 36c:	f0 2d       	mov	r31, r0
+			
+			// =======================================================
+			// 스위치 조작 시 완벽한 동시 업데이트
+			// =======================================================
+			while (TCNT1 > 39500);          // 리셋 임박 시 대기
+ 36e:	80 91 84 00 	lds	r24, 0x0084	; 0x800084 <__TEXT_REGION_LENGTH__+0x7f8084>
+ 372:	90 91 85 00 	lds	r25, 0x0085	; 0x800085 <__TEXT_REGION_LENGTH__+0x7f8085>
+ 376:	8d 34       	cpi	r24, 0x4D	; 77
+ 378:	9a 49       	sbci	r25, 0x9A	; 154
+ 37a:	c8 f7       	brcc	.-14     	; 0x36e <main+0x8c>
+			
+			uint8_t sreg_save = SREG;       // 1. 현재 인터럽트 상태 백업
+ 37c:	9f b7       	in	r25, 0x3f	; 63
+			SREG &= ~(1 << 7);              // 2. 전역 인터럽트 끄기 (I-bit 클리어)
+ 37e:	8f b7       	in	r24, 0x3f	; 63
+ 380:	8f 77       	andi	r24, 0x7F	; 127
+ 382:	8f bf       	out	0x3f, r24	; 63
+			
+			OCR1A = pwm_motor1;             // 3. 방해 없이 동시 업데이트
+ 384:	10 93 89 00 	sts	0x0089, r17	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
+ 388:	00 93 88 00 	sts	0x0088, r16	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
+			OCR1B = pwm_motor2;
+ 38c:	f0 92 8b 00 	sts	0x008B, r15	; 0x80008b <__TEXT_REGION_LENGTH__+0x7f808b>
+ 390:	e0 92 8a 00 	sts	0x008A, r14	; 0x80008a <__TEXT_REGION_LENGTH__+0x7f808a>
+			
+			SREG = sreg_save;               // 4. 인터럽트 원래 상태로 복원
+ 394:	9f bf       	out	0x3f, r25	; 63
+			// =======================================================
+			
+			USART_transmit_string("Speed UP! M1: ");
+ 396:	87 ef       	ldi	r24, 0xF7	; 247
+ 398:	91 e0       	ldi	r25, 0x01	; 1
+ 39a:	0e 94 5e 00 	call	0xbc	; 0xbc <USART_transmit_string>
+			USART_transmit_number(pwm_motor1);
+ 39e:	c8 01       	movw	r24, r16
+ 3a0:	0e 94 6b 00 	call	0xd6	; 0xd6 <USART_transmit_number>
+			USART_transmit_string(", M2: ");
+ 3a4:	86 e0       	ldi	r24, 0x06	; 6
+ 3a6:	92 e0       	ldi	r25, 0x02	; 2
+ 3a8:	0e 94 5e 00 	call	0xbc	; 0xbc <USART_transmit_string>
+			USART_transmit_number(pwm_motor2);
+ 3ac:	c7 01       	movw	r24, r14
+ 3ae:	0e 94 6b 00 	call	0xd6	; 0xd6 <USART_transmit_number>
+			USART_transmit_string("\r\n");
+ 3b2:	8f e2       	ldi	r24, 0x2F	; 47
+ 3b4:	92 e0       	ldi	r25, 0x02	; 2
+ 3b6:	0e 94 5e 00 	call	0xbc	; 0xbc <USART_transmit_string>
+ 3ba:	8f ef       	ldi	r24, 0xFF	; 255
+ 3bc:	90 e7       	ldi	r25, 0x70	; 112
+ 3be:	22 e0       	ldi	r18, 0x02	; 2
+ 3c0:	81 50       	subi	r24, 0x01	; 1
+ 3c2:	90 40       	sbci	r25, 0x00	; 0
+ 3c4:	20 40       	sbci	r18, 0x00	; 0
+ 3c6:	e1 f7       	brne	.-8      	; 0x3c0 <main+0xde>
+ 3c8:	00 c0       	rjmp	.+0      	; 0x3ca <main+0xe8>
+ 3ca:	00 00       	nop
+		}
+		last_sw_state = sw_state;
+
+
+		// 2. 초음파 센서 감지 및 정지 로직
+		print_counter++;
+ 3cc:	8f ef       	ldi	r24, 0xFF	; 255
+ 3ce:	c8 1a       	sub	r12, r24
+ 3d0:	d8 0a       	sbc	r13, r24
+		
+		if (print_counter >= 30000) {
+ 3d2:	90 e3       	ldi	r25, 0x30	; 48
+ 3d4:	c9 16       	cp	r12, r25
+ 3d6:	95 e7       	ldi	r25, 0x75	; 117
+ 3d8:	d9 06       	cpc	r13, r25
+ 3da:	08 f4       	brcc	.+2      	; 0x3de <main+0xfc>
+ 3dc:	a5 cf       	rjmp	.-182    	; 0x328 <main+0x46>
+			uint16_t dist = get_distance_cm();
+ 3de:	0e 94 cd 00 	call	0x19a	; 0x19a <get_distance_cm>
+			
+			// 장애물이 10cm 미만으로 가까워지면 두 모터 모두 즉시 정지
+			if(dist < 10 && dist > 0) {
+ 3e2:	01 97       	sbiw	r24, 0x01	; 1
+ 3e4:	09 97       	sbiw	r24, 0x09	; 9
+ 3e6:	08 f0       	brcs	.+2      	; 0x3ea <main+0x108>
+ 3e8:	9d cf       	rjmp	.-198    	; 0x324 <main+0x42>
+				USART_transmit_string("OBSTACLE DETECTED! STOP BOTH ESCs!\r\n");
+ 3ea:	8d e0       	ldi	r24, 0x0D	; 13
+ 3ec:	92 e0       	ldi	r25, 0x02	; 2
+ 3ee:	0e 94 5e 00 	call	0xbc	; 0xbc <USART_transmit_string>
+				pwm_motor2 = PWM_MIN;
+				
+				// =======================================================
+				// 긴급 정지 시 완벽한 동시 업데이트
+				// =======================================================
+				while (TCNT1 > 39500);
+ 3f2:	80 91 84 00 	lds	r24, 0x0084	; 0x800084 <__TEXT_REGION_LENGTH__+0x7f8084>
+ 3f6:	90 91 85 00 	lds	r25, 0x0085	; 0x800085 <__TEXT_REGION_LENGTH__+0x7f8085>
+ 3fa:	8d 34       	cpi	r24, 0x4D	; 77
+ 3fc:	9a 49       	sbci	r25, 0x9A	; 154
+ 3fe:	c8 f7       	brcc	.-14     	; 0x3f2 <main+0x110>
+				
+				uint8_t sreg_save = SREG;
+ 400:	2f b7       	in	r18, 0x3f	; 63
+				SREG &= ~(1 << 7);
+ 402:	8f b7       	in	r24, 0x3f	; 63
+ 404:	8f 77       	andi	r24, 0x7F	; 127
+ 406:	8f bf       	out	0x3f, r24	; 63
+				
+				OCR1A = pwm_motor1;
+ 408:	80 ed       	ldi	r24, 0xD0	; 208
+ 40a:	97 e0       	ldi	r25, 0x07	; 7
+ 40c:	90 93 89 00 	sts	0x0089, r25	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
+ 410:	80 93 88 00 	sts	0x0088, r24	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
+				OCR1B = pwm_motor2;
+ 414:	90 93 8b 00 	sts	0x008B, r25	; 0x80008b <__TEXT_REGION_LENGTH__+0x7f808b>
+ 418:	80 93 8a 00 	sts	0x008A, r24	; 0x80008a <__TEXT_REGION_LENGTH__+0x7f808a>
+				
+				SREG = sreg_save;
+ 41c:	2f bf       	out	0x3f, r18	; 63
+			// 장애물이 10cm 미만으로 가까워지면 두 모터 모두 즉시 정지
+			if(dist < 10 && dist > 0) {
+				USART_transmit_string("OBSTACLE DETECTED! STOP BOTH ESCs!\r\n");
+				
+				pwm_motor1 = PWM_MIN;
+				pwm_motor2 = PWM_MIN;
+ 41e:	0f 2e       	mov	r0, r31
+ 420:	f0 ed       	ldi	r31, 0xD0	; 208
+ 422:	ef 2e       	mov	r14, r31
+ 424:	f7 e0       	ldi	r31, 0x07	; 7
+ 426:	ff 2e       	mov	r15, r31
+ 428:	f0 2d       	mov	r31, r0
+			
+			// 장애물이 10cm 미만으로 가까워지면 두 모터 모두 즉시 정지
+			if(dist < 10 && dist > 0) {
+				USART_transmit_string("OBSTACLE DETECTED! STOP BOTH ESCs!\r\n");
+				
+				pwm_motor1 = PWM_MIN;
+ 42a:	00 ed       	ldi	r16, 0xD0	; 208
+ 42c:	17 e0       	ldi	r17, 0x07	; 7
+				OCR1B = pwm_motor2;
+				
+				SREG = sreg_save;
+				// =======================================================
+			}
+			print_counter = 0;
+ 42e:	c1 2c       	mov	r12, r1
+ 430:	d1 2c       	mov	r13, r1
+ 432:	7a cf       	rjmp	.-268    	; 0x328 <main+0x46>
+
+00000434 <__udivmodsi4>:
+ 434:	a1 e2       	ldi	r26, 0x21	; 33
+ 436:	1a 2e       	mov	r1, r26
+ 438:	aa 1b       	sub	r26, r26
+ 43a:	bb 1b       	sub	r27, r27
+ 43c:	fd 01       	movw	r30, r26
+ 43e:	0d c0       	rjmp	.+26     	; 0x45a <__udivmodsi4_ep>
+
+00000440 <__udivmodsi4_loop>:
+ 440:	aa 1f       	adc	r26, r26
+ 442:	bb 1f       	adc	r27, r27
+ 444:	ee 1f       	adc	r30, r30
+ 446:	ff 1f       	adc	r31, r31
+ 448:	a2 17       	cp	r26, r18
+ 44a:	b3 07       	cpc	r27, r19
+ 44c:	e4 07       	cpc	r30, r20
+ 44e:	f5 07       	cpc	r31, r21
+ 450:	20 f0       	brcs	.+8      	; 0x45a <__udivmodsi4_ep>
+ 452:	a2 1b       	sub	r26, r18
+ 454:	b3 0b       	sbc	r27, r19
+ 456:	e4 0b       	sbc	r30, r20
+ 458:	f5 0b       	sbc	r31, r21
+
+0000045a <__udivmodsi4_ep>:
+ 45a:	66 1f       	adc	r22, r22
+ 45c:	77 1f       	adc	r23, r23
+ 45e:	88 1f       	adc	r24, r24
+ 460:	99 1f       	adc	r25, r25
+ 462:	1a 94       	dec	r1
+ 464:	69 f7       	brne	.-38     	; 0x440 <__udivmodsi4_loop>
+ 466:	60 95       	com	r22
+ 468:	70 95       	com	r23
+ 46a:	80 95       	com	r24
+ 46c:	90 95       	com	r25
+ 46e:	9b 01       	movw	r18, r22
+ 470:	ac 01       	movw	r20, r24
+ 472:	bd 01       	movw	r22, r26
+ 474:	cf 01       	movw	r24, r30
+ 476:	08 95       	ret
+
+00000478 <__umulhisi3>:
+ 478:	a2 9f       	mul	r26, r18
+ 47a:	b0 01       	movw	r22, r0
+ 47c:	b3 9f       	mul	r27, r19
+ 47e:	c0 01       	movw	r24, r0
+ 480:	a3 9f       	mul	r26, r19
+ 482:	70 0d       	add	r23, r0
+ 484:	81 1d       	adc	r24, r1
+ 486:	11 24       	eor	r1, r1
+ 488:	91 1d       	adc	r25, r1
+ 48a:	b2 9f       	mul	r27, r18
+ 48c:	70 0d       	add	r23, r0
+ 48e:	81 1d       	adc	r24, r1
+ 490:	11 24       	eor	r1, r1
+ 492:	91 1d       	adc	r25, r1
+ 494:	08 95       	ret
+
+00000496 <_exit>:
+ 496:	f8 94       	cli
+
+00000498 <__stop_program>:
+ 498:	ff cf       	rjmp	.-2      	; 0x498 <__stop_program>
