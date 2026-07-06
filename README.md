@@ -11,9 +11,16 @@
 ---------------
 
 ## 드론 테스트 하드웨어 제작
-
-<video src="https://github.com/user-attachments/assets/7ba754b7-89ef-4e2c-ac61-23e5a5d4aa4c" width="60%" controls></video>
-
+<table>
+  <tr>
+    <td width="50%">
+      <img src="https://github.com/user-attachments/assets/5f2f9a90-0f73-4d9f-b6b3-f2a348778121" alt="드론 하드웨어" width="100%">
+    </td>
+    <td width="50%">
+      <video src="https://github.com/user-attachments/assets/7ba754b7-89ef-4e2c-ac61-23e5a5d4aa4c" width="100%" controls></video>
+    </td>
+  </tr>
+</table>
 
 ## ESC 캘리브레이션
 - **모터의 최소/최대 제어 스로틀 범위를 설정하는 과정입니다.**
