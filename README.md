@@ -8,3 +8,13 @@
 https://github.com/user-attachments/assets/7ba754b7-89ef-4e2c-ac61-23e5a5d4aa4c
 
 
+## ESC 연동 및 BLDC 모터 제어
+
+### ESC 캘리브레이션
+
+https://github.com/user-attachments/assets/b8bd7f2a-72bd-4a6e-aebf-ecaf0cd57ae3
+
+### BLDC 모터 속도 제어
+
+https://github.com/user-attachments/assets/138a8aa1-6b8d-4985-909f-4a96413a1091
+
