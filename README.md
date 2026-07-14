@@ -34,7 +34,7 @@
 <a href="https://youtu.be/IzBIH2YIv_E">
   <img src="https://img.youtube.com/vi/IzBIH2YIv_E/0.jpg" alt="MPU6050 테스트 영상" width="100%">
 </a>
---------
+
 
 ## bldc_motor_control 코드
 
