@@ -32,7 +32,9 @@
 
 **🎥 아래 이미지를 클릭하여 테스트 영상을 확인해 보세요!**
 
-[![MPU6050 테스트 영상](https://img.youtube.com/vi/IzBIH2YIv_E/0.jpg)](https://youtu.be/IzBIH2YIv_E)
+<a href="https://youtu.be/IzBIH2YIv_E">
+  <img src="https://img.youtube.com/vi/IzBIH2YIv_E/0.jpg" alt="MPU6050 테스트 영상" width="100%">
+</a>
 
 ## bldc_motor_control 코드
 
