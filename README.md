@@ -56,4 +56,3 @@
 
 <video src="https://github.com/user-attachments/assets/138a8aa1-6b8d-4985-909f-4a96413a1091" width="60%" controls></video>
 
-## MPU6050_EKF_Roll_Pitch
