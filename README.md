@@ -8,7 +8,7 @@
 - 또한, 야외 테스트 중 추락해 대부분의 부품들이 파손되어 멀쩡한 부품들을 찾아서 테스트 중 입니다.
 
 
----------------
+--------------
 
 ## 드론 테스트 하드웨어 제작
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -34,7 +34,8 @@
 <a href="https://youtu.be/IzBIH2YIv_E">
   <img src="https://img.youtube.com/vi/IzBIH2YIv_E/0.jpg" alt="MPU6050 테스트 영상" width="100%">
 </a>
-------------
+--------
+
 ## bldc_motor_control 코드
 
 ### ESC 캘리브레이션
