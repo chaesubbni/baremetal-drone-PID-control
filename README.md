@@ -30,7 +30,7 @@
 - 하드웨어 타이머를 활용해 250Hz(4ms)의 엄격한 제어 주기를 강제함으로써, 적분 시간(dt) 오차로 인한 필터 발산을 방지하고 신뢰도 높은 각도 데이터를 산출합니다.
 - 내장 기능 외에 UART 통신 프로토콜을 레지스터 레벨에서 직접 구현하여 필터링된 데이터를 PC로 전송하고, MATLAB과의 연동 및 데이터 시각화를 통해 드론의 현재 자세 상태를 실시간으로 모니터링할 수 있도록 설계했습니다.
 
-https://youtu.be/IzBIH2YIv_E
+[![MPU6050 테스트 영상](https://img.youtube.com/vi/IzBIH2YIv_E/0.jpg)](https://youtu.be/IzBIH2YIv_E)
 
 ## bldc_motor_control 코드
 
