@@ -38,7 +38,7 @@
 </a>
 
 
-## bldc_motor_control 코드
+# bldc_motor_control 코드
 
 ### ESC 캘리브레이션
 - 모터의 최소/최대 제어 스로틀 범위를 설정하는 과정입니다.
